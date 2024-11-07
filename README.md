@@ -57,7 +57,6 @@ The website is designed to be fully responsive, ensuring compatibility with diff
 ## Additional Requirements
 
 - **About Us Page**: Includes group member details, the data model image, and a GitHub link for project coordination.
-- **Self-Reflection**: Each team member adds a self-reflection comment on their learnings, time spent, and recommendations for future projects.
 
 ## GitHub Coordination
 
