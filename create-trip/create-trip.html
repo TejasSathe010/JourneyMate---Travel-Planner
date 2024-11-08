@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Trip - Itinerary</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Create Your Trip</h1>
+            <p class="subtitle">Plan your dream trip with ease</p>
+        </header>
+
+        <div class="trip-form">
+            <form id="trip-form">
+                <div class="form-section">
+                    <label for="trip-name">Trip Name</label>
+                    <input type="text" id="trip-name" placeholder="Enter your trip name">
+                </div>
+                <div class="form-section">
+                    <label for="source">Source</label>
+                    <input type="text" id="source" placeholder="Enter source location">
+                </div>
+                <div class="form-section">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" placeholder="Enter destination location">
+                </div>
+                <div class="form-section">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date">
+                </div>
+                <div class="form-section">
+                    <label for="end-date">End Date</label>
+                    <input type="date" id="end-date" onchange="generateItinerary()">
+                </div>
+            </form>
+        </div>
+
+        <div id="itinerary-container" class="itinerary-container"></div>
+
+        <button class="submit-btn" onclick="return validateForm()">Save Trip</button>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
