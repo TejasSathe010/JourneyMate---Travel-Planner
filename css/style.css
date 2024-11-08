@@ -1,41 +1,133 @@
-/* General reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0077b6;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #ffcc00;
+}
+
+/* Navbar Toggle */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #0077b6;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #fff;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+}
+
 /* Hero Section */
 .hero {
     position: relative;
     height: 100vh;
-    background: url('images/hero-image.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../img/hero-image.jpg') no-repeat center center/cover;
+    filter: blur(4px); /* Adjust the blur radius to control intensity */
+    transform: scale(1.1); /* Slight scale to avoid visible edges */
+    z-index: -1; /* Ensures background stays behind content */
+    opacity: 0.9; /* Adjust opacity for desired effect */
+}
+
+.hero-content {
+    text-align: center;
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Text Animation */
-.hero-content {
-    opacity: 0;
-    animation: fadeInText 2s forwards;
-}
-
 .hero-title {
+    color: #0077b6;
     font-size: 4rem;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
     margin-bottom: 20px;
-    animation: fadeInText 1s 0.5s forwards;
+    opacity: 0;
+    animation: fadeInText 2s forwards 1s;
 }
 
 .hero-description {
     font-size: 1.5rem;
     margin-bottom: 30px;
-    animation: fadeInText 1.5s 1s forwards;
+    opacity: 0;
+    animation: fadeInText 2s forwards 1.5s;
 }
 
 .btn {
@@ -46,6 +138,8 @@
     border-radius: 5px;
     font-size: 1.2rem;
     transition: background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeInText 2s forwards 2s;
 }
 
 .btn:hover {
@@ -57,28 +151,21 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #f1f1f1;
+    margin-top: auto;
 }
 
-/* Fade-In Keyframes */
+/* Fade-in Keyframes */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @keyframes fadeInText {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Responsiveness */
+/* Responsive Hero Section */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
@@ -94,7 +181,6 @@ footer {
     }
 }
 
-/* Small Screens */
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
