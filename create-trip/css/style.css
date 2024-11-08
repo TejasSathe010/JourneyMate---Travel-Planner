@@ -76,6 +76,60 @@ input[type="text"]:focus, input[type="date"]:focus {
     outline: none;
 }
 
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 250px;
+    padding: 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    width: 250px;
+    padding: 15px;
+    background-color: #95a5a6; /* Different background color */
+    color: #fff;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #7f8c8d; /* Darken color on hover */
+}
+
+/* Responsive Buttons for Mobile */
+@media (max-width: 768px) {
+    .submit-btn,
+    .back-btn {
+        width: 100%;
+    }
+}
+
 .itinerary-container {
     margin-top: 40px;
 }
@@ -149,26 +203,6 @@ input[type="text"]:focus, input[type="date"]:focus {
     border-radius: 8px;
     background-color: #f7f7f8;
     margin-top: 10px;
-}
-
-.submit-btn {
-    display: block;
-    width: 250px;
-    padding: 15px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin: 40px auto 0;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: #2980b9;
 }
 
 @media (max-width: 768px) {
