@@ -1,0 +1,189 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #000; /* Set all text to black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0077b6;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+    .navbar-links a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1em;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+        .navbar-links a:hover {
+            color: #ffcc00;
+        }
+
+/* Navbar Toggle */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+    .navbar-toggle .bar {
+        height: 3px;
+        width: 25px;
+        background-color: white;
+        margin: 4px 0;
+        transition: 0.3s;
+    }
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #0077b6;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #fff;
+    }
+
+        .navbar-links.active {
+            display: flex;
+        }
+
+    .navbar-toggle {
+        display: flex;
+    }
+}
+/* Container for the trip list */
+.container {
+    width: 85%;
+    max-width: 1100px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #000; /* Black header text */
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #555; /* Dark gray subtitle */
+    font-size: 1.1rem;
+}
+
+/* Trip Tile Styling */
+.trip-tile {
+    background-color: #d0e6f7; /* Light blue */
+    border: 1px solid #a0c4e0; /* Slightly darker blue */
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip-tile h2 {
+    font-size: 1.5rem;
+    color: #2c3e50; /* Darker text for trip name */
+}
+
+.trip-tile:hover {
+    background-color: #a8d0f0; /* Darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Container Styling */
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Back and Add Trip Buttons */
+.back-btn, .add-trip-btn {
+    width: 180px;
+    padding: 12px;
+    background-color: #3498db; /* Blue background for buttons */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover, .add-trip-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .back-btn, .add-trip-btn {
+        width: 100%;
+    }
+}

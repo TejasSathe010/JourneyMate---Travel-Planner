@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trip Details</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">Journey Mate</div>
+        <ul class="navbar-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./planned-trip/trip-list.html">Trips</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <div class="navbar-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Your Trip</h1>
+            <p class="subtitle">Trip Details</p> <!-- This will be updated dynamically -->
+            <div class="trip-info">
+                <p><strong>From:</strong> <span id="source"></span></p> <!-- Updated dynamically -->
+                <p><strong>To:</strong> <span id="destination"></span></p> <!-- Updated dynamically -->
+            </div>
+            <div class="trip-info">
+                <p><strong>Start Date:</strong> <span id="start-date"></span></p> <!-- Updated dynamically -->
+                <p><strong>End Date:</strong> <span id="end-date"></span></p> <!-- Updated dynamically -->
+            </div>
+        </header>
+
+        <section>
+            <h2>Itinerary</h2>
+            <div id="itinerary-container">
+                <!-- Itinerary data will be populated here -->
+            </div>
+        </section>
+
+        <section class="button-container">
+            <button class="back-btn" onclick="window.location.href='../planned-trip/trip-list.html'">Back to Trips</button>
+        </section>
+    </div>
+
+    <script>
+        // Function to load trip details dynamically based on URL parameter
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tripIndex = urlParams.get('index'); // Get the index from URL
+
+            console.log("Trip Index from URL:", tripIndex); // Debugging log
+
+            if (tripIndex !== null) {
+                // If an index is present, load the specific trip data from localStorage
+                loadTripDetails(tripIndex);
+            } else {
+                alert('No trip index found!');
+            }
+        });
+
+        // Function to load trip details from localStorage based on the index
+        function loadTripDetails(tripIndex) {
+            const trips = JSON.parse(localStorage.getItem('tripData')) || [];
+            console.log("Trips loaded from localStorage:", trips); // Debugging log
+
+            const trip = trips[tripIndex];
+
+            if (trip) {
+                // Update the page with trip details
+                document.querySelector('.subtitle').textContent = trip.tripName;
+                document.getElementById('source').textContent = trip.source;
+                document.getElementById('destination').textContent = trip.destination;
+                document.getElementById('start-date').textContent = trip.startDate;
+                document.getElementById('end-date').textContent = trip.endDate;
+
+                // Generate itinerary dynamically
+                generateItinerary(trip.itinerary);
+            } else {
+                alert('Trip not found!');
+            }
+        }
+
+        // Function to generate itinerary sections based on trip data
+        function generateItinerary(itineraryData) {
+            const itineraryContainer = document.getElementById('itinerary-container');
+            itineraryContainer.innerHTML = ''; // Clear existing itinerary
+
+            itineraryData.forEach((dayData) => {
+                const card = document.createElement('div');
+                card.classList.add('itinerary-card');
+                card.innerHTML = `
+                            <div class="day-header">
+                                <h3>Day ${dayData.day}</h3>
+                                <span>Day ${dayData.day} Itinerary</span>
+                            </div>
+                            <div class="budget-section">
+                                <div class="budget-item">
+                                    <label for="food-day-${dayData.day}">Food</label>
+                                    <input type="number" id="food-day-${dayData.day}" value="${dayData.food}" disabled>
+                                </div>
+                                <div class="budget-item">
+                                    <label for="accommodation-day-${dayData.day}">Accommodation</label>
+                                    <input type="number" id="accommodation-day-${dayData.day}" value="${dayData.accommodation}" disabled>
+                                </div>
+                                <div class="budget-item">
+                                    <label for="travel-day-${dayData.day}">Travel</label>
+                                    <input type="number" id="travel-day-${dayData.day}" value="${dayData.travel}" disabled>
+                                </div>
+                            </div>
+                            <div class="activities-section">
+                                <label for="activities-day-${dayData.day}">Activities</label>
+                                <input type="text" id="activities-day-${dayData.day}" value="${dayData.activities}" disabled>
+                            </div>
+                            <div class="stuff-section">
+                                <label for="stuff-day-${dayData.day}">Stuff to carry</label>
+                                <input type="text" id="stuff-day-${dayData.day}" value="${dayData.stuff}" disabled>
+                            </div>
+                        `;
+                itineraryContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
