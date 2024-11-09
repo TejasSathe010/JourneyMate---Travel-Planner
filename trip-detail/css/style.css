@@ -1,0 +1,190 @@
+/* Resetting common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #3498db;
+}
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.trip-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increase this value to create more space */
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #34495e;
+}
+
+.trip-info p {
+    font-weight: 500;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.chart {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chart h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #3498db;
+}
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e1e1e1;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#budgetPieChart,
+#tripdaysBarChart,
+#expensesLineChart {
+    max-width: 100%; /* Ensure the chart fits within the parent container */
+    max-height: 100%; /* Prevent overflow */
+    display: block;
+}
+@media (max-width: 768px) {
+    .charts {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .chart-container {
+        padding: 15px;
+        margin-bottom: 15px;
+        flex-direction: column; 
+        align-items: center; 
+    }
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 250px;
+    padding: 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    width: 250px;
+    padding: 15px;
+    background-color: #95a5a6; /* Different background color */
+    color: #fff;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #7f8c8d; /* Darken color on hover */
+}
+
+/* Responsive Buttons for Mobile */
+@media (max-width: 768px) {
+    .submit-btn,
+    .back-btn {
+        width: 100%;
+    }
+}

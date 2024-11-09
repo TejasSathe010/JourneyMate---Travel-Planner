@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Trip</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Trip</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Trip</h1>
+            <p class="subtitle">Trip to Barcelona</p>
+            <div class="trip-info">
+                <p><strong>From:</strong> Tampa</p>
+                <p><strong>To:</strong> Barcelona</p>
+            </div>
+            <div class="trip-info">
+                <p><strong>Start Date:</strong> November 15, 2024</p>
+                <p><strong>End Date:</strong> November 20, 2024</p>
+            </div>  
+        </header>
+
+        <section>
+            <h2>Daily Activities & Costs</h2>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Cost (Food)</th>
+                    <th>Cost (Accommodation)</th>
+                    <th>Cost (Travel)</th>
+                    <th>Activities</th>
+                    <th>Things to Prepare</th>
+                </tr>
+                <!-- Sample data for each day -->
+                <tr>
+                    <td>Day 1</td>
+                    <td>$50</td>
+                    <td>$100</td>
+                    <td>$30</td>
+                    <td>Sightseeing, Beach</td>
+                    <td>Sunscreen, Hat</td>
+                </tr>
+                <tr>
+                    <td>Day 2</td>
+                    <td>$60</td>
+                    <td>$100</td>
+                    <td>$40</td>
+                    <td>City Tour, Museums</td>
+                    <td>Camera, Comfortable Shoes</td>
+                </tr>
+                <tr>
+                    <td>Day 3</td>
+                    <td>$55</td>
+                    <td>$100</td>
+                    <td>$35</td>
+                    <td>Shopping, Local Cuisine</td>
+                    <td>Shopping Bag, Wallet</td>
+                </tr>
+                <tr>
+                    <td>Day 4</td>
+                    <td>$70</td>
+                    <td>$110</td>
+                    <td>$25</td>
+                    <td>Hiking, Park Visit</td>
+                    <td>Water Bottle, Hiking Boots</td>
+                </tr>
+                <tr>
+                    <td>Day 5</td>
+                    <td>$65</td>
+                    <td>$120</td>
+                    <td>$50</td>
+                    <td>Boat Tour, Market</td>
+                    <td>Swimwear, Sunglasses</td>
+                </tr>
+                <tr>
+                    <td>Day 6</td>
+                    <td>$50</td>
+                    <td>$100</td>
+                    <td>$40</td>
+                    <td>Relaxation, Photography</td>
+                    <td>Charged Batteries, Book</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="chart">
+            <h3>Budget Allocation</h3>
+            <div class="chart-container" id="pieChartPlaceholder">
+                <canvas id="budgetPieChart"></canvas>
+            </div>             
+        </section>
+        <section class="chart">
+            <h3>Days per Trip</h3>
+            <div class="chart-container" id="barChartPlaceholder">
+                <canvas id="tripdaysBarChart"></canvas>
+            </div>
+        </section>
+        <section class="chart">
+            <h3>Expenses Distribution</h3>
+            <div class="chart-container" id="lineChartPlaceholder">
+                <canvas id="expensesLineChart"></canvas>
+            </div>
+        </section>
+        <section class="button-container">
+            <button class="back-btn" onclick="window.location.href='../index.html'">Back to Your trips</button>
+            <button class="submit-btn" onclick="window.location.href='../create-trip/create-trip.html'">Edit Trip</button>
+        </section>
+    </div>
+    <script>
+        //Budget allocation pie chart
+        new Chart(document.getElementById("budgetPieChart"), {
+        type: 'pie',
+        data: {
+            labels: ['Food', 'Accommodation', 'Travel'],
+            datasets: [{
+                data: [330, 600, 220], // Sample data
+                backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
+            }]
+        },
+        options: {
+            responsive: true,
+                legend: {
+                    display: true,
+                    position: 'right'
+                }
+        }
+        });
+        // Days per Trip Bar Chart
+        new Chart(document.getElementById("tripdaysBarChart"), {
+            type: 'bar',
+            data: {
+                labels: ['Mexico City', 'Tokyo', 'New York', 'Barcelona'],
+                datasets: [{
+                    label: 'Number of Days',
+                    data: [5, 7, 3, 6], // Sample data
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: { display: false },
+                scales: {
+                    x: {
+                        title: {
+                            display: false,
+                            text: 'Trips'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Days'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        // Expenses Distribution Line Chart
+        new Chart(document.getElementById("expensesLineChart"), {
+            type: 'line',
+            data: {
+                labels: ['Mexico City', 'Tokyo', 'New York', 'Barcelona'],
+                datasets: [
+                    {
+                        label: 'Food Expenses',
+                        data: [100, 190, 210, 350], // Sample data
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        fill: true
+                    },
+                    {
+                        label: 'Accommodation Expenses',
+                        data: [180, 850, 450, 620], // Sample data
+                        borderColor: '#2ecc71',
+                        backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                        fill: true
+                    },
+                    {
+                        label: 'Travel Expenses',
+                        data: [80, 460, 100, 220], // Sample data
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: { display: false },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Locations'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Expenses ($)'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
