@@ -265,3 +265,40 @@ th {
         width: 100%;
     }
 }
+
+.itinerary-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.day-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.budget-section, .activities-section, .stuff-section {
+    margin-bottom: 15px;
+}
+
+.budget-item {
+    margin-bottom: 8px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}

@@ -96,7 +96,7 @@
         <section class="chart">
             <h3>Days per Trip</h3>
             <div class="chart-container" id="barChartPlaceholder">
-                <canvas id="tripdaysBarChart"></canvas>
+                <canvas id="budgetBarChart"></canvas>
             </div>
         </section>
         <section class="chart">
@@ -130,18 +130,15 @@
         }
         });
         // Days per Trip Bar Chart
-        new Chart(document.getElementById("tripdaysBarChart"), {
+        new Chart(document.getElementById("budgetBarChart"), {
             type: 'bar',
             data: {
-                labels: ['Mexico City', 'Tokyo', 'New York', 'Barcelona'],
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'],
                 datasets: [{
-                    label: 'Number of Days',
-                    data: [5, 7, 3, 6], // Sample data
+                    label: 'Budget',
+                    data: [180, 200, 190, 205, 235, 190], // Sample data
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
+                        'rgba(255, 99, 132, 0.2)'
                     ]
                 }]
             },
@@ -152,13 +149,13 @@
                     x: {
                         title: {
                             display: false,
-                            text: 'Trips'
+                            text: 'Day'
                         }
                     },
                     y: {
                         title: {
                             display: true,
-                            text: 'Number of Days'
+                            text: 'Budget'
                         },
                         beginAtZero: true
                     }
@@ -169,25 +166,25 @@
         new Chart(document.getElementById("expensesLineChart"), {
             type: 'line',
             data: {
-                labels: ['Mexico City', 'Tokyo', 'New York', 'Barcelona'],
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4','Day 5','Day 6'],
                 datasets: [
                     {
                         label: 'Food Expenses',
-                        data: [100, 190, 210, 350], // Sample data
+                        data: [50, 60, 55, 70,65,50], // Sample data
                         borderColor: '#3498db',
                         backgroundColor: 'rgba(52, 152, 219, 0.2)',
                         fill: true
                     },
                     {
                         label: 'Accommodation Expenses',
-                        data: [180, 850, 450, 620], // Sample data
+                        data: [100, 100, 100, 110,120,100], // Sample data
                         borderColor: '#2ecc71',
                         backgroundColor: 'rgba(46, 204, 113, 0.2)',
                         fill: true
                     },
                     {
                         label: 'Travel Expenses',
-                        data: [80, 460, 100, 220], // Sample data
+                        data: [30, 40, 35, 25,50,40], // Sample data
                         borderColor: '#e74c3c',
                         backgroundColor: 'rgba(231, 76, 60, 0.2)',
                         fill: true
