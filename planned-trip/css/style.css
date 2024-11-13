@@ -20,6 +20,7 @@ body {
 
 /* Navbar Styling */
 .navbar {
+    font-family: "Times New Roman", Times, serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
