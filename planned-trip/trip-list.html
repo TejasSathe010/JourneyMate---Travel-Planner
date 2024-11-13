@@ -32,11 +32,11 @@
 
 <body>
     <nav class="navbar">
-        <div class="navbar-logo">Journey Mate</div>
+        <div class="navbar-logo">JourneyMate</div>
         <ul class="navbar-links">
             <li><a href="../index.html">Home</a></li>
             <li><a href="./trip-list.html">Trips</a></li>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../about.html">About Us</a></li>
         </ul>
         <div class="navbar-toggle">
             <span class="bar"></span>
@@ -51,8 +51,39 @@
             <p class="subtitle">Click on a trip to view details</p>
         </header>
 
-        <div id="trip-list"></div>
+        <div id="trip-list">
+            <a href="../trip-detail/trip-detail.html" class="trip-link">
+                <div class="trip-card">
+                    <div class="trip-title">
+                        <h3>Trip to Barcelona</h3>
+                    </div>
+                    <div class="trip-details">
+                        <div class="detail-item"><strong>Source:</strong> Tampa</div>
+                        <div class="detail-item"><strong>Destination:</strong> Barcelona</div>
+                        <div class="detail-item"><strong>Start Date:</strong> November 15, 2024</div>
+                        <div class="detail-item"><strong>End Date:</strong> November 20, 2024</div>
+                    </div>
+                </div>
+            </a>
 
+        </div>
+
+        <div id="trip-list">
+            <a href="../trip-detail/trip-detail-jp.html" class="trip-link">
+                <div class="trip-card">
+                    <div class="trip-title">
+                        <h3>Trip to Japan</h3>
+                    </div>
+                    <div class="trip-details">
+                        <div class="detail-item"><strong>Source:</strong> Tampa</div>
+                        <div class="detail-item"><strong>Destination:</strong> Tokyo</div>
+                        <div class="detail-item"><strong>Start Date:</strong> November 15, 2025</div>
+                        <div class="detail-item"><strong>End Date:</strong> November 20, 2025</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
         <div class="button-container" style="margin-top: 20px;">
             <button class="back-btn" onclick="window.location.href='../index.html'">Back to Home</button>
             <button class="add-trip-btn" onclick="window.location.href='../create-trip/create-trip.html'">Plan New Trip</button>

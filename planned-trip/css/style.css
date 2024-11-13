@@ -20,6 +20,7 @@ body {
 
 /* Navbar Styling */
 .navbar {
+    font-family: "Times New Roman", Times, serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -186,4 +187,72 @@ h1 {
     .back-btn, .add-trip-btn {
         width: 100%;
     }
+}
+
+/* Trips List */
+.trips-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 30;
+    margin-bottom: 30;
+}
+
+.trip-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.trip-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin: 20;
+}
+
+.trip-link:hover {
+    background-color: #f9f9f9;
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.trip-details p{
+    max-width: 60%;
+}
+
+.trip-title {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.trip-details{
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    color: #555;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 10px; /* Space between grid items */
+}
+
+.trip-actions {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.detail-item {
+    display: flex;
+    text-align: left;
 }
